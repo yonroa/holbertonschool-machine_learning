@@ -4,8 +4,6 @@
 
 def add_matrices2D(mat1, mat2):
     """Adds two matrices element-wise"""
-    print(matrix_shape(mat1))
-    print(matrix_shape(mat2))
     if matrix_shape(mat1) != matrix_shape(mat2):
         return None
     sum_matrix = []
