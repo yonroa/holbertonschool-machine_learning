@@ -11,11 +11,13 @@ def cat_matrices2D(mat1, mat2, axis=0):
     else:
         return None
 
+
 def cat_arrays(arr1, arr2):
     """Concatenates two arrays"""
     new_array = arr1.copy()
     new_array.extend(arr2)
     return new_array
+
 
 if __name__ == "__main__":
     m1 = [[51, 24, 73], [93, 45, 77]]
