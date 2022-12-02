@@ -4,14 +4,14 @@
 
 def add_matrices2D(mat1, mat2):
     """Adds two matrices element-wise"""
-    if len(mat1) == 0 or len(mat2) == 0:
-        return None
-    if matrix_shape(mat1) != matrix_shape(mat2):
-        return None
-    sum_matrix = []
-    for i in range(len(mat1)):
-        sum_matrix.append(add_arrays(mat1[i], mat2[i]))
-    return sum_matrix
+    if len(mat1) == len(mat2):
+        sum_matrix = []
+        for i in range(len(mat1)):
+            sum_matrix.append(add_arrays(mat1[i], mat2[i]))
+        if None in sum_matrix:
+            return None
+        return sum_matrix
+    return None
 
 
 def matrix_shape(matrix):
