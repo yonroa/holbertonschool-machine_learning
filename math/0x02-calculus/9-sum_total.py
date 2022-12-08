@@ -6,7 +6,7 @@ def summation_i_squared(n):
     """Calculates the summatory of i^2"""
     if type(n) != int or n < 0:
         return None
-    return (n * (n + 1) * ((2 * n) + 1)) // 6
+    return ((n // 6) * (n + 1) * ((2 * n) + 1))
 
 
 if __name__ == "__main__":
