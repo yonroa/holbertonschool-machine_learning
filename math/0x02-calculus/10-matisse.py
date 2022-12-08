@@ -5,7 +5,7 @@
 def poly_derivative(poly):
     """Calculates the derivative of a polynomial"""
     if isinstance(poly, list) and all(
-            isinstance(x, (int, float)) for x in poly):
+            isinstance(x, int) for x in poly):
         derivate = []
         for i in range(len(poly)):
             exp = i - 1
