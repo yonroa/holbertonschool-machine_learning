@@ -4,13 +4,16 @@
 
 def poly_derivative(poly):
     """Calculates the derivative of a polynomial"""
-    derivate = []
-    for i in range(len(poly)):
-        exp = i - 1
-        coef = poly[i] * i
-        if exp >= 0:
-            derivate.append(coef)
-    return derivate
+    if isinstance(poly, list):
+        derivate = []
+        for i in range(len(poly)):
+            exp = i - 1
+            coef = poly[i] * i
+            if exp >= 0:
+                derivate.append(coef)
+        return derivate
+    else:
+        return None
 
 
 if __name__ == "__main__":
