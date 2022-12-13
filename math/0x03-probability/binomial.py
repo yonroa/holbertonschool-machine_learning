@@ -71,5 +71,5 @@ class Binomial:
         summatory = 0
         for i in range(k + 1):
             coef = factorial(self.n) / (factorial(i) * factorial(self.n - i))
-            summatory += coef * (self.p ** i) * ((1 - self.p) ** (self.n - 1))
+            summatory += coef * (self.p ** i) * ((1 - self.p) ** (self.n - i))
         return summatory
