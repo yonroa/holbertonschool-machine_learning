@@ -42,6 +42,8 @@ class Poisson:
             k = int(k)
         except Exception:
             return 0
+        if k < 0:
+            return 0
         return (e**-self.lambtha) * (self.lambtha**k) / factorial(k)
 
     def cdf(self, k):
