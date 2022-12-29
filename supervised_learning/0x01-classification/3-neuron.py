@@ -57,5 +57,5 @@ class Neuron:
             Y: contains the correct labels for the input data
             A: contains the activated output of the neuron for each example
         """
-        loss = -(Y * np.log(A)) + ((1 - Y) * np.log(1.0000001 - A))
-        return (loss.sum() / len(Y.T))
+        loss = (Y * np.log(A)) + ((1 - Y) * np.log(1.0000001 - A))
+        return (-loss.sum() / len(Y.T))
