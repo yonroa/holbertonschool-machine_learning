@@ -62,10 +62,10 @@ class Neuron:
 
     def evaluate(self, X, Y):
         """Evaluates the neuron's predictions
-        
+
         Args:
             X: contains the input data
             Y: contains the correct labels for the input data
         """
         self.forward_prop(X)
-        return (np.rint(self.A), self.cost(Y, self.A))
+        return (np.rint(self.A).astype(int), self.cost(Y, self.A))
