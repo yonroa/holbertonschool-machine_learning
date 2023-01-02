@@ -2,6 +2,7 @@
 """This module contain the class 'Neuron'"""
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def sigmoid(z):
@@ -88,7 +89,7 @@ class Neuron:
         self.__W = self.__W - (alpha * Dw)
         self.__b = self.__b - (alpha * Db)
 
-    def train(self, X, Y, iterations=5000, alpha=0.05):
+    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):
         """Trains the neuron
 
         Args:
@@ -96,6 +97,10 @@ class Neuron:
             Y: contains the correct labels for the input data
             iterations: number of iterations to train over
             alpha: learning rate
+            verbose: boolean that defines whether or not to print
+                    information about the training
+            graph: boolean that defines whether or not to graph information
+                    about the training once the training has completed
         """
         if type(iterations) != int:
             raise TypeError("iterations must be an integer")
@@ -105,9 +110,27 @@ class Neuron:
             raise TypeError("alpha must be a float")
         if alpha < 0:
             raise ValueError("alpha must be positive")
+        if verbose or graph:
+            if type(step) != int:
+                raise TypeError("step must be an integer")
+            if step <= 0 or step >= iterations:
+                raise ValueError("step must be positive and <= iterations")
 
-        for _ in range(iterations):
+        costs = []
+        iteration = []
+        for i in range(iterations):
+            cost = self.cost(Y, self.__A)
+            if verbose and i % step == 0:
+                costs.append(cost)
+                iteration.append(i)
+                print(f"Cost after {i} iterations: {cost}")
             self.__A = self.forward_prop(X)
             self.gradient_descent(X, Y, self.__A, alpha)
+        if graph:
+            plt.plot(iteration, costs, "b")
+            plt.title("Training Cost")
+            plt.xlabel("iteration")
+            plt.ylabel("cost")
+            plt.show
 
         return self.evaluate(X, Y)
