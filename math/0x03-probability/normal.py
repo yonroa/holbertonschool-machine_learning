@@ -13,7 +13,7 @@ class Normal:
     """Represents a normal distribution"""
 
     def __init__(self, data=None, mean=0., stddev=1.):
-        """Instantiation of the 'Exponential' class.
+        """Instantiation of the 'Normal' class.
 
         Args:
             data: list of the data to be used to estimate the distribution
