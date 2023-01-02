@@ -97,11 +97,11 @@ class Neuron:
             iterations: number of iterations to train over
             alpha: learning rate
         """
-        if not isinstance(iterations, int):
+        if type(iterations) != int:
             raise TypeError("iterations must be an integer")
         if iterations < 0:
             raise TypeError("iterations must be a positive integer")
-        if not isinstance(alpha, float):
+        if type(alpha) != float:
             raise TypeError("alpha must be a float")
         if alpha < 0:
             raise TypeError("alpha must be positive")
