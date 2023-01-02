@@ -67,8 +67,10 @@ class Neuron:
             X: contains the input data
             Y: contains the correct labels for the input data
         """
-        self.forward_prop(X)
-        return (np.rint(self.A).astype(int), self.cost(Y, self.A))
+        A = self.forward_prop(X)
+        cost = self.cost(Y, A)
+        prediction = np.where(A >= 0.5, 1, 0)
+        return prediction, cost
 
     def gradient_descent(self, X, Y, A, alpha=0.05):
         """Calculates one pass of gradient descent on the neuron
