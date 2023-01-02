@@ -47,8 +47,8 @@ class Neuron:
         Args:
             X: contains the input data
         """
-        self.__A = sigmoid(np.dot(self.W, X) + self.b)
-        return self.A
+        self.__A = sigmoid(np.matmul(self.__W, X) + self.__b)
+        return self.__A
 
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression
@@ -79,7 +79,7 @@ class Neuron:
             A: contains the activated output of the neuron for each example
             alpha: the learning rate
         """
-        m = Y.shape[1]
+        m = X.shape[1]
         Dz = A - Y
         Dw = (1 / m) * np.matmul(Dz, X.T)
         Db = (1 / m) * np.sum(Dz)
@@ -97,7 +97,7 @@ class Neuron:
         """
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
-        if iterations <= 0:
+        if iterations < 0:
             raise TypeError("iterations must be a positive integer")
         if not isinstance(alpha, float):
             raise TypeError("alpha must be a float")
@@ -105,7 +105,7 @@ class Neuron:
             raise TypeError("alpha must be positive")
 
         for _ in range(iterations):
-            self.forward_prop(X)
-            self.gradient_descent(X, Y, self.A, alpha)
+            self.__A = self.forward_prop(X)
+            self.gradient_descent(X, Y, self.__A, alpha)
 
         return self.evaluate(X, Y)
