@@ -90,7 +90,7 @@ class NeuralNetwork:
 
     def evaluate(self, X, Y):
         """Evaluates the neural network's predictions
-        
+
         Args:
             X: contains the input data
             Y: contains the correct labels for the input data
@@ -102,7 +102,7 @@ class NeuralNetwork:
 
     def gradient_descent(self, X, Y, A1, A2, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network
-        
+
         Args:
             X: contains the input data
             Y: contains the correct labels for the input data
@@ -114,7 +114,7 @@ class NeuralNetwork:
         Dz2 = A2 - Y
         Dw2 = (1 / m) * np.matmul(Dz2, A1.T)
         Db2 = (1 / m) * np.sum(Dz2)
-        Dz1 = np.matmul(self.__W2.T, Dz2) * (A1 * (1- A1))
+        Dz1 = np.matmul(self.__W2.T, Dz2) * (A1 * (1 - A1))
         Dw1 = (1 / m) * np.matmul(Dz1, X.T)
         Db1 = (1 / m) * np.sum(Dz1)
 

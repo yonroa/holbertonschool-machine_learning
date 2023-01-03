@@ -90,7 +90,7 @@ class NeuralNetwork:
 
     def evaluate(self, X, Y):
         """Evaluates the neural network's predictions
-        
+
         Args:
             X: contains the input data
             Y: contains the correct labels for the input data
