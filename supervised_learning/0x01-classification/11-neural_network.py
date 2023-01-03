@@ -80,7 +80,7 @@ class NeuralNetwork:
 
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression
-        
+
         Args:
             Y: contains the correct labels for the input data
             A: containing the activated output of the neuron for each example
