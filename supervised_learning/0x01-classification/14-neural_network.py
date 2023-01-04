@@ -110,17 +110,17 @@ class NeuralNetwork:
             A2: predicted output
             alpha: learning rate
         """
-        m = X.shape[1]
+        m = len(Y[0])
         Dz2 = A2 - Y
-        Dw2 = (1 / m) * np.matmul(Dz2, A1.T)
+        Dw2 = (1 / m) * np.matmul(A1, Dz2.T)
         Db2 = (1 / m) * np.sum(Dz2)
         Dz1 = np.matmul(self.__W2.T, Dz2) * (A1 * (1 - A1))
-        Dw1 = (1 / m) * np.matmul(Dz1, X.T)
+        Dw1 = (1 / m) * np.matmul(X, Dz1.T)
         Db1 = (1 / m) * np.sum(Dz1)
 
-        self.__W1 = self.__W1 - (alpha * Dw1)
+        self.__W1 = self.__W1 - (alpha * Dw1.T)
         self.__b1 = self.__b1 - (alpha * Db1)
-        self.__W2 = self.__W2 - (alpha * Dw2)
+        self.__W2 = self.__W2 - (alpha * Dw2.T)
         self.__b2 = self.__b2 - (alpha * Db2)
 
     def train(self, X, Y, iterations=5000, alpha=0.05):
