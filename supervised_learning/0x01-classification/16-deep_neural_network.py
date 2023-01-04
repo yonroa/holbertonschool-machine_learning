@@ -25,10 +25,15 @@ class DeepNeuralNetwork:
         self.cache = {}
         self.weights = {}
         for i in range(len(layers)):
-            if type(layers[i]) != int or layers[i] < 0:
-                raise TypeError("layers must be a list of positive integers")
-            b = np.zeros((layers[i], 1))
-            w = np.random.randn(layers[i], nx) * np.sqrt(2 / nx)
-            self.weights["b{}".format(layers[i] + 1)] = b
-            self.weights["W{}".format(layers[i] + 1)] = w
-            nx = layers[i]
+            def first():
+                if i == 0:
+                    factor1, factor2 = np.random.randn(
+                        layers[i], nx), np.sqrt(2 / nx)
+                    self.weights['W' + str(i + 1)] = factor1 * factor2
+                    return
+                factor1, factor2 = np.random.randn(
+                    layers[i], layers[i - 1]), np.sqrt(2 / layers[i - 1])
+                self.weights['W' + str(i + 1)] = factor1 * factor2
+            first()
+            zeros = np.zeros(layers[i])
+            self.weights['b' + str(i + 1)] = zeros.reshape(layers[i], 1)
