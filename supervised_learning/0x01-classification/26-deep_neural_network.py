@@ -198,7 +198,7 @@ class DeepNeuralNetwork:
             filename: file from which the object should be loaded
         """
         try:
-            with open(filename, "wb") as f:
+            with open(filename, "rb") as f:
                 obj = pickle.load(f)
                 return obj
         except Exception:
