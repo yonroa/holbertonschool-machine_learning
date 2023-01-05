@@ -104,19 +104,19 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network
-        
+
         Args:
             Y: contains the correct labels for the input data
             cache: contains all the intermediary values of the network
             alpha: learning rate
         """
-        m = len(Y[0])
+        m = Y.shape[1]
         Dz = cache["A{}".format(self.__L)] - Y
 
         for i in range(self.__L, 0, -1):
             A = cache["A{}".format(i - 1)]
-            Dw = np.matmul(Dz, A.T) / m
-            Db = np.sum(Dz)
+            Dw = (1 / m) * np.matmul(Dz, A.T)
+            Db = (1 / m) * np.sum(Dz)
             W = self.__weights["W{}".format(i)]
             Dz = np.matmul(W.T, Dz) * (A * (1 - A))
             self.__weights["W{}".format(i)] = self.__weights["W{}".format(i)] \
