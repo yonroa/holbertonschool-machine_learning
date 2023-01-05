@@ -116,7 +116,7 @@ class DeepNeuralNetwork:
         for i in range(self.__L, 0, -1):
             A = cache["A{}".format(i - 1)]
             Dw = (1 / m) * np.matmul(Dz, A.T)
-            Db = (1 / m) * np.sum(Dz)
+            Db = (1 / m) * np.sum(Dz, axis=1, keepdims=True)
             W = self.__weights["W{}".format(i)]
             Dz = np.matmul(W.T, Dz) * (A * (1 - A))
             self.__weights["W{}".format(i)] = self.__weights["W{}".format(i)] \
