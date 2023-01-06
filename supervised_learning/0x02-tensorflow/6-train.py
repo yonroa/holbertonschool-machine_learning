@@ -12,7 +12,7 @@ create_train_op = __import__('5-create_train_op').create_train_op
 def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
           activations, alpha, iterations, save_path="/tmp/model.ckpt"):
     """Builds, trains, and saves a neural network classifier"""
-    x, y =create_placeholders(X_train.shqpe[1], Y_train.shape[1])
+    x, y = create_placeholders(X_train.shape[1], Y_train.shape[1])
     y_pred = forward_prop(x, layer_sizes, activations)
     loss = calculate_loss(y, y_pred)
     accuracy = calculate_accuracy(y, y_pred)
