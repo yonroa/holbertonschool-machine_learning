@@ -10,7 +10,7 @@ def create_layer(prev, n, activation):
     layer = tf.keras.layers.Dense(
         units=n,
         activation=activation,
-        kernel=init,
+        kernel_initializer=init,
         name=layer
     )
     return layer(prev)
