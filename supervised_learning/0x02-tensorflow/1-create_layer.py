@@ -11,6 +11,6 @@ def create_layer(prev, n, activation):
         units=n,
         activation=activation,
         kernel_initializer=init,
-        name=layer
+        name="layer"
     )
     return layer(prev)
