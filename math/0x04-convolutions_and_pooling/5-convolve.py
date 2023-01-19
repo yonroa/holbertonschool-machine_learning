@@ -13,7 +13,7 @@ def convolve(images, kernels, padding='same', stride=(1, 1)):
         padding: Tuple of (ph, pw) or 'same' or 'valid'
         stride: Tuple of (sh, sw)
     """
-    m, h, w = images.shape
+    m, h, w, c = images.shape
     kh, kw, _, nc = kernels.shape
     sh, sw = stride
     ph, pw = (0, 0)
