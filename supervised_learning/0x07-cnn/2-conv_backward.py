@@ -18,8 +18,9 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
             the type of padding used
         stride: Tuple containing the strides for the convolution
     """
-    m, h_prev, w_prev, c_prev = A_prev.shape
-    kh, kw, c_prev, c_new = W.shape
+    _, h_prev, w_prev, c_prev = A_prev.shape
+    kh = W.shape[0]
+    kw = W.shape[1]
     sh, sw = stride
     m, h_new, w_new, c_new = dZ.shape
     dW = np.zeros_like(W)
@@ -32,7 +33,7 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
         p_h = (((h_prev - 1) * sh) + kh - h_prev) // 2 + 1
         p_w = (((w_prev - 1) * sw) + kw - w_prev) // 2 + 1
 
-    A_prev = np.pad(da, ((0, 0), (p_h, p_h), (p_w, p_w), (0, 0)),
+    A_prev = np.pad(A_prev, ((0, 0), (p_h, p_h), (p_w, p_w), (0, 0)),
                     mode='constant', constant_values=0)
     dA = np.pad(da, ((0, 0), (p_h, p_h), (p_w, p_w), (0, 0)),
                 mode='constant', constant_values=0)
