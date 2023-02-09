@@ -28,13 +28,13 @@ def densenet121(growth_rate=32, compression=1.0):
                                   strides=(2, 2),
                                   padding='same')(conv1)
     X1, filters = dense_block(pool1, filters, growth_rate, layers=6)
-    layer1, nb_filters = transition_layer(X1, nb_filters, compression)
+    layer1, filters = transition_layer(X1, filters, compression)
 
     X2, filters = dense_block(layer1, filters, growth_rate, 12)
-    layer2, nb_filters = transition_layer(X2, nb_filters, compression)
+    layer2, filters = transition_layer(X2, filters, compression)
 
     X3, filters = dense_block(layer2, filters, growth_rate, 24)
-    layer3, nb_filters = transition_layer(X3, filters, compression)
+    layer3, filters = transition_layer(X3, filters, compression)
 
     X4, filters = dense_block(layer3, filters, growth_rate, 16)
     pool2 = K.layers.AveragePooling2D(pool_size=7)(X4)
