@@ -10,7 +10,7 @@ def adjugate(matrix):
         return [[1]]
     cofactor_matrix = cofactor(matrix)
     adjugate_m = [[cofactor_matrix[j][i]
-                for j in range(len(matrix))] for i in range(len(matrix))]
+                   for j in range(len(matrix))] for i in range(len(matrix))]
     return adjugate_m
 
 
