@@ -73,7 +73,8 @@ def minor(matrix):
             if len(submatrix) == 0:
                 return [[1]]
             if len(submatrix) == 2:
-                determinant = submatrix[0][0] * submatrix[1][1] - submatrix[0][1] * submatrix[1][0]
+                determinant = submatrix[0][0] * submatrix[1][1]
+                - submatrix[0][1] * submatrix[1][0]
             else:
                 for k in range(len(submatrix)):
                     sign = (-1) ** k
