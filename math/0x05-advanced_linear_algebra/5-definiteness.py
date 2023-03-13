@@ -10,6 +10,8 @@ def definiteness(matrix):
         raise TypeError("matrix must be a numpy.ndarray")
     if len(matrix) == 0 or matrix.shape[0] != matrix.shape[1]:
         return None
+    if not np.array_equal(matrix, matrix.T):
+        return None
     eigenvalues, _ = np.linalg.eig(matrix)
     if all(eigenvalues > 0):
         return "Positive definite"
