@@ -53,7 +53,7 @@ def intersection(x, n, P, Pr):
         raise ValueError("x cannot be greater than n")
     if not isinstance(P, np.ndarray) or len(P.shape) != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
-    if not isinstance(Pr, np.ndarray) or len(Pr.shape) != len(P.shape):
+    if not isinstance(Pr, np.ndarray) or Pr.shape != P.shape:
         raise TypeError("Pr must be a numpy.ndarray with the same shape as P")
     for number in P:
         if number < 0 or number > 1:
