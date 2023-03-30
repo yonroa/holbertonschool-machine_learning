@@ -7,11 +7,13 @@ import numpy as np
 def forward(Observation, Emission, Transition, Initial):
     """performs the forward algorithm for a hidden markov model"""
     try:
-        if not isinstance(Observation, np.ndarray) or len(Observation.shape) != 1:
+        if not isinstance(Observation, np.ndarray) or len(
+                Observation.shape) != 1:
             return None, None
         if not isinstance(Emission, np.ndarray) or len(Emission.shape) != 2:
             return None, None
-        if not isinstance(Transition, np.ndarray) or len(Transition.shape) != 2:
+        if not isinstance(Transition, np.ndarray) or len(
+                Transition.shape) != 2:
             return None, None
         if not isinstance(Initial, np.ndarray) or len(Initial.shape) != 2:
             return None, None
