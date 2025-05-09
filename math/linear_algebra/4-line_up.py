@@ -7,6 +7,6 @@ def add_arrays(arr1, arr2):
     if len(arr1) != len(arr2):
         return None
     sum_array = []
-    for i in range(len(arr1)):
-        sum_array.append(arr1[i] + arr2[i])
+    for x in range(0, len(arr1)):
+        sum_array.append(arr1[x] + arr2[x])
     return sum_array

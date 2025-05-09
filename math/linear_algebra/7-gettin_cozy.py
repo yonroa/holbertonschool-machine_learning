@@ -11,9 +11,9 @@ def cat_matrices2D(mat1, mat2, axis=0):
     else:
         return None
 
-
 def cat_arrays(arr1, arr2):
     """Concatenates two arrays"""
     new_array = arr1.copy()
-    new_array.extend(arr2)
+    for x in range(0, len(arr2)):
+        new_array.append(arr2[x])
     return new_array
