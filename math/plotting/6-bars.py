@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def bars():
+    """Plot a stacked bar graph"""
 
     np.random.seed(5)
     fruit = np.random.randint(0, 20, (4, 3))

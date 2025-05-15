@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def all_in_one():
+    """Plot all 5 previous graphs in one figure"""
 
     y0 = np.arange(0, 11) ** 3
 
