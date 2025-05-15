@@ -8,7 +8,7 @@ def poly_integral(poly, C=0):
             isinstance(C, int) or isinstance(C, float)) and all(
             isinstance(x, (int, float)) for x in poly):
         if poly == [0]:
-            return[C]
+            return [C]
         integrate = []
         integrate.append(C)
         for i in range(len(poly)):
