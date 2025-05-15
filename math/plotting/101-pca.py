@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Contains 'PCA' procedure"""
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np

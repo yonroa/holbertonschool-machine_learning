@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Contains 'gradient' function"""
 import numpy as np
 import matplotlib.pyplot as plt
