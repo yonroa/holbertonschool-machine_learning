@@ -23,4 +23,4 @@ ax.set_xlabel("U1")
 ax.set_ylabel("U2")
 ax.set_zlabel("U3")
 
-plt.savefig("graph.png")
+plt.show()
