@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Contains 'change_scale' function"""
 import numpy as np
 import matplotlib.pyplot as plt
 

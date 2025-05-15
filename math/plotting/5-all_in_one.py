@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Contains 'all_in_one' function"""
 import numpy as np
 import matplotlib.pyplot as plt
 
